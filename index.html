@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Taxi Trips</title>
+    <script src="taxi.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Taxi Trip</h2>
+
+        <div x-data="route">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Passanger Action</th>
+                        <th>Taxi Trips</th>
+                        <th>Taxi Fare</th>
+                        <th>Total Fare</th>
+                        <th>Taxis Avail</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <template x-for="route in rank">
+                        <tr>
+                            <td x-text="mainRank"></td>
+                            <td x-text="route.destination"></td>
+                            <td>
+                                <button @click="route.subtract()">-</button>
+                                <span x-text="route.passageAction"></span>
+                                <button @click="route.add()">+</button>
+                            </td>
+                            <td>
+                                <button @click="route.leave()">Leave</button>
+                                <span x-text="route.taxiTrips"></span>
+                            </td>
+                            <td x-text="route.taxiFare.toFixed(2)">0.00</td>
+                            <td x-text="route.total().toFixed(2)">0.00</td>
+                            <td x-text="route.taxiAvail"></td>
+
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
