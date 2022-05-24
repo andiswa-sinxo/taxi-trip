@@ -26,7 +26,7 @@ document.addEventListener('alpine:init', () => {
                         this.passageAction -= this.limit
                     },
                     total(){
-                        this.taxiTrips + this.taxiFare
+                      return Number(this.taxiTrips)*10
                     }
 
                     

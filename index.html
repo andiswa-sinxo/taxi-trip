@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <h2>Taxi Trip</h2>
+        <h2 style="text-decoration: underline;"> Cape Town Taxi Rank</h2>
 
         <div x-data="route">
 
@@ -45,7 +45,7 @@
                                 <span x-text="route.taxiTrips"></span>
                             </td>
                             <td x-text="route.taxiFare.toFixed(2)">0.00</td>
-                            <td x-text="route.total().toFixed(2)">0.00</td>
+                            <td x-text="route.totalFare.toFixed(2)">0.00</td>
                             <td x-text="route.taxiAvail"></td>
 
                         </tr>
