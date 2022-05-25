@@ -13,6 +13,7 @@ document.addEventListener('alpine:init', () => {
                 totalFare: 0.00,
                 taxiAvail: 4,
                 limit: 10,
+                routeTrips:0,
                 
                     add(){
                         this.passageAction++;
@@ -26,8 +27,14 @@ document.addEventListener('alpine:init', () => {
                         this.passageAction -= this.limit
                     },
                     total(){
-                      return Number(this.taxiTrips)*10
+                      return Number(this.taxiFare)*10
+                    },
+                    
+                    totalTrips(){
+                        let myTrips = this.total();
+                        this.routeTrips += myTrips
                     }
+                    
 
                     
             },
@@ -39,6 +46,7 @@ document.addEventListener('alpine:init', () => {
                 totalFare: 0.00,
                 taxiAvail: 3,
                 limit: 10,
+                routeTrips:0,
 
                 add(){
                     this.passageAction++;
@@ -50,7 +58,15 @@ document.addEventListener('alpine:init', () => {
                     this.taxiTrips++;
                     this.taxiAvail -=1;
                     this.passageAction -= this.limit
-                }
+                },
+                total(){
+                    return Number(this.taxiFare)*10
+                  },
+                  
+                  totalTrips(){
+                      let myTrips = this.total();
+                      this.routeTrips += myTrips
+                  }
             },
             {
                 destination: "Khayelitsha",
@@ -60,6 +76,7 @@ document.addEventListener('alpine:init', () => {
                 totalFare: 0.00,
                 taxiAvail: 7,
                 limit: 10,
+                routeTrips:0,
 
                 add(){
                     this.passageAction++;
@@ -72,7 +89,15 @@ document.addEventListener('alpine:init', () => {
                     this.taxiAvail -=1;
                     this.passageAction -= this.limit
 
-                }
+                },
+                total(){
+                    return Number(this.taxiFare)*10
+                  },
+                  
+                  totalTrips(){
+                      let myTrips = this.total();
+                      this.routeTrips += myTrips
+                  }
             },
             {
                 destination: "Thornton",
@@ -82,6 +107,7 @@ document.addEventListener('alpine:init', () => {
                 totalFare: 0.00,
                 taxiAvail: 2,
                 limit: 10,
+                routeTrips:0,
 
                 add(){
                     this.passageAction++;
@@ -93,7 +119,15 @@ document.addEventListener('alpine:init', () => {
                     this.taxiTrips++;
                     this.taxiAvail -=1;
                     this.passageAction -= this.limit
-                }
+                },
+                total(){
+                    return Number(this.taxiFare)*10
+                  },
+                  
+                  totalTrips(){
+                      let myTrips = this.total(trips);
+                      this.routeTrips += myTrips
+                  },
             }
             
     

@@ -41,11 +41,11 @@
                                 <button @click="route.add()">+</button>
                             </td>
                             <td>
-                                <button @click="route.leave()">Leave</button>
+                                <button @click="route.leave(), route.totalTrips(route)">Leave</button>
                                 <span x-text="route.taxiTrips"></span>
                             </td>
                             <td x-text="route.taxiFare.toFixed(2)">0.00</td>
-                            <td x-text="route.totalFare.toFixed(2)">0.00</td>
+                            <td x-text="route.routeTrips.toFixed(2)"></td>
                             <td x-text="route.taxiAvail"></td>
 
                         </tr>
