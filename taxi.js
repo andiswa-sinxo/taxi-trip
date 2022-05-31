@@ -4,6 +4,10 @@ document.addEventListener('alpine:init', () => {
         init() {
             console.log(this.rank)
         },
+        total() {
+            return _.sumBy(this.rank, r => r.total())
+        },
+         
         rank: [
             {
                 destination: "Gugulethu",
@@ -14,7 +18,8 @@ document.addEventListener('alpine:init', () => {
                 taxiAvail: 4,
                 limit: 10,
                 routeTrips:0,
-                
+                totalPayment: 0,
+
                     add(){
                         this.passageAction++;
                     },
@@ -25,18 +30,18 @@ document.addEventListener('alpine:init', () => {
                         this.taxiTrips++;
                         this.taxiAvail -=1;
                         this.passageAction -= this.limit
+                        
                     },
                     total(){
-                      return Number(this.taxiFare)*10
+                      return Number(this.taxiFare) * this.limit * this.taxiTrips 
                     },
                     
                     totalTrips(){
                         let myTrips = this.total();
                         this.routeTrips += myTrips
-                    }
+                    },
                     
-
-                    
+ 
             },
             {
                 destination: "Nyanga",
@@ -60,8 +65,8 @@ document.addEventListener('alpine:init', () => {
                     this.passageAction -= this.limit
                 },
                 total(){
-                    return Number(this.taxiFare)*10
-                  },
+                    return Number(this.taxiFare) * this.limit * this.taxiTrips 
+                },
                   
                   totalTrips(){
                       let myTrips = this.total();
@@ -91,8 +96,8 @@ document.addEventListener('alpine:init', () => {
 
                 },
                 total(){
-                    return Number(this.taxiFare)*10
-                  },
+                    return Number(this.taxiFare) * this.limit * this.taxiTrips 
+                },
                   
                   totalTrips(){
                       let myTrips = this.total();
@@ -121,8 +126,8 @@ document.addEventListener('alpine:init', () => {
                     this.passageAction -= this.limit
                 },
                 total(){
-                    return Number(this.taxiFare)*10
-                  },
+                    return Number(this.taxiFare) * this.limit * this.taxiTrips 
+                },
                   
                   totalTrips(){
                       let myTrips = this.total(trips);
