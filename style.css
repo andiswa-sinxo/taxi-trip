@@ -8,6 +8,9 @@
 body{
     background-color: #CB793A;
 }
+.price{
+  text-align:left;
+}
 
 table{
     margin-left: auto;
